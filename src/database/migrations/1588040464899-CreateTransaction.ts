@@ -34,11 +34,6 @@ export default class CreateTransaction1588039768587
             scale: 2,
           },
           {
-            name: 'category_id',
-            type: 'uuid',
-            isNullable: true,
-          },
-          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -49,18 +44,6 @@ export default class CreateTransaction1588039768587
             default: 'now()',
           },
         ],
-      }),
-    );
-
-    await queryRunner.createForeignKey(
-      'transactions',
-      new TableForeignKey({
-        name: 'TransactionCategory',
-        columnNames: ['category_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'categories',
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE',
       }),
     );
   }
